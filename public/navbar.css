@@ -1,0 +1,46 @@
+
+.mynavbar {
+  position: fixed;
+  width: 100vw;
+  display: flex;          
+  justify-content: space-around; 
+  background-color: #05944f; 
+  padding: 10px 0;   
+  height: 40px;   
+  margin-top: 20px; 
+  z-index: +2;
+ 
+ 
+}
+.mynav-logo img {
+  position:relative;
+  top:-44px;
+  height: auto; 
+  object-fit:cover; 
+  border-radius: 50%;
+  padding: 0;
+  max-width: 156px; 
+  height: auto;
+  
+}
+
+.mynav-links{
+  display: flex; 
+  justify-content: center; 
+  width: 50%;
+ 
+}
+
+.mynav-item {
+  color: white;            
+  text-decoration: none;   
+  padding: 10px 20px;      
+  display: inline-block;   
+
+}
+
+
+.mynav-item:hover {
+  color:black;
+
+}

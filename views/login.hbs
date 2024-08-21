@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+      .container{
+        padding: 150px;
+      }
+    </style>
+</head>
+<body>
+    {{>navbar}}
+  
+  <div class="container">
+{{msg}}
+
+  <form action="/login" method="post">
+<input type="text " name="username" placeholder="Enter username">
+    <input type="password" name="password" placeholder="Enter password">
+    <button type="submit"> login</button>
+
+    <h4>New User ? Signup</h4>
+    <a href="/signup"> Signup</a>
+
+   
+
+  </form>
+   <h4>Login via Google</h4>
+    <a href="/auth/google"> Login</a>
+
+
+</div>
+
+</body>
+</html>

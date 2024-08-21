@@ -1,0 +1,35 @@
+.container{
+    padding-top:150px;
+    /* border: 1px solid red; */
+    display: flex;
+    height: 200px;
+    justify-content: space-around;
+}
+
+.tagline-container{
+    width: 48%;
+    text-align: center;
+    line-height: 1.6; 
+    /* border: 2px solid red; */
+    text-transform: capitalize;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+html, body {
+    padding:0;
+    margin: 0;  
+    background-image: url("");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+
+
+
+
+
+    

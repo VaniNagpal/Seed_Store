@@ -1,0 +1,17 @@
+
+<nav class="mynavbar">
+    <div class="mynav-logo">
+     <img src="/images/logo.png" alt="Logo">
+  </div>
+  <div class="mynav-links">
+  <a class="mynav-item" href="/">Home</a>
+  <a class="mynav-item" href="/shop/products">Products</a>
+  <a class="mynav-item" href="/cart">Cart</a>
+  <a class="mynav-item" href="/login">Login</a>
+  <a class="mynav-item" href="/signup">Signup</a>
+  {{#if user.isAdmin}}
+    <a class="mynav-item" href="/admin">Admin</a>
+{{/if}}
+ <a class="mynav-item" href="/logout">Logout</a>
+  </div>
+</nav>

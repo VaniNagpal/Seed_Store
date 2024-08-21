@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/navbar.css">
+    <style>
+        body {
+
+            font-family: Arial, sans-serif;
+            margin: 0;
+            
+            box-sizing: border-box;
+            background-color: white;
+        }
+
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #05944f;
+        }
+        .product-container{
+            margin-left: 10%;
+            {{!-- border: 2px solid red; --}}
+            width: 79%;
+            
+           
+            padding: 120px;
+        }
+        .maincontainer{
+            {{!-- border: 2px solid red; --}}
+            display:flex;
+            justify-content: space-between;
+        }
+        .sidecontainer{
+            position: fixed;
+            top: 0;
+            left: 0;
+             height: 100%;
+           width: 15%;
+              {{!-- border: 2px solid red; --}}
+            padding-top:120px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+       align-content: flex-start;
+
+
+           
+        }
+         .category-section {
+            margin-bottom: 20px;
+        }
+        .category-title {
+            font-size: 1.5em;
+            color: #05944f;
+            margin-bottom: 10px;
+        }
+        .categorie-item{
+            text-decoration:none;
+            color: black;
+            padding-top: 10px;
+            width: 100%;
+            height: 35px;
+           padding-left: 10px;
+        }
+        .categorie-item:hover{
+            color: #05944f;
+            
+        }
+
+        .category-List {
+            {{!-- border: 2px solid blue; --}}
+              width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+             align-items:center ;
+            
+            
+            
+        }
+        .product-list{
+              {{!-- border: 2px solid red; --}}
+              display: flex;
+              width: 100%;
+              padding: 20px;
+              padding-top: 30px;
+              gap: 20px;
+        }
+
+        .product-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .product-item h4 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .button-group{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .product-List {
+                padding: 10px;
+            }
+
+            .product-item {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    {{> navbar}}
+    <div class="maincontainer">  
+        <div class="sidecontainer">
+           <div class="div" style="color: #05944f;padding-left:10px;">Categories</div> 
+         {{#each data as |category|}}
+            <a href="#{{@key}}" class="categorie-item">{{@key}}</a> 
+          {{/each}} 
+        </div>
+
+
+    <div class="product-container">
+    <h1>Admin Product List</h1>
+    <div class="category-List">
+        {{#each data as |category|}}
+        <div id={{@key}} class="category-section">
+        <h3 class="category-title">{{@key}}</h3>
+        <div class="product-list">
+        {{#each category as |p|}}
+        <div class="product-item">
+            <img src="{{p.image}}" alt="{{p.name}}">
+            <h4>{{p.name}}</h4>
+            <h4> &#8377;{{p.price}}</h4>
+            <div class="button-group">
+                <a href="/admin/product/update/{{p._id}}">
+                <button class="delete">Edit</button>
+                </a>
+                <a href="/admin/product/delete/{{p._id}}">
+                 <button class="edit">Delete</button>
+                 </a>
+            </div>
+        </div>
+        {{/each}}
+        </div>
+        </div>
+         {{/each}}
+        </div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get all category links
+    const categoryLinks = document.querySelectorAll('.sidecontainer .categorie-item');
+
+    // Add click event listener to each link
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+
+            // Get the target section ID
+            const targetId = this.getAttribute('href').substring(1); // Remove the '#' from href
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+                // Calculate the scroll position with offset
+                const offset = 100; // Change this to adjust the offset from the top
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                // Scroll to the position
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

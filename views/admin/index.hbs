@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+     <link rel="stylesheet" href="navbar.css">
+     <style>
+        .container{
+            padding-top: 120px;
+            display: flex;
+            justify-content: space-around;
+
+        }
+        .container-item{
+            color: white;  
+            background-color: #05944f;          
+           text-decoration: none;   
+           padding: 10px 20px;      
+           display: inline-block; 
+        }
+     </style>
+</head>
+<body>
+    {{>navbar}}
+
+    <div class="container">
+        <a href="/admin/products/all">
+        <div class="container-item">View Products</div>
+        </a>
+        <a href="/admin/products/add">
+        <div class="container-item">Add Product</div>
+        </a>
+    </div>
+</body>
+</html>

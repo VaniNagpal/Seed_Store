@@ -159,9 +159,10 @@
             <h4>{{p.name}}</h4>
             <h4> &#8377;{{p.price}}</h4>
             <div class="button-group">
-                <a href="#">
-                <button class="delete">Add to Cart</button>
+                <a href="/shop/cart/add/{{p._id}}">
+                    <button>ADD TO CART</button>
                 </a>
+              
                 
             </div>
         </div>
@@ -201,6 +202,23 @@
         });
     });
 });
+
+
+    // Check if there's a success alert parameter in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const alertType = urlParams.get('alert');
+
+    if (alertType === 'success') {
+        Swal.fire({
+            title: 'Good job!',
+            text: 'You clicked the button!',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    }
+
+
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

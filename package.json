@@ -4,7 +4,6 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-   
     "start": "node app.js",
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,6 +24,7 @@
     "monodb": "^1.5.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sweetalert": "^2.1.2"
   }
 }

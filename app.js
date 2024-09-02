@@ -50,6 +50,8 @@ app.use('/admin', isAdmin, adminrouter);
 app.use('/shop', isLoggedin, shoprouter);
 app.use('/', userRoutes);
 
+
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
